@@ -25,19 +25,26 @@ Plug 'vim-airline/vim-airline-themes' " theme for airline
 Plug 'airblade/vim-gitgutter' " +, - and ~ for git diff (added/removed/modified)
 Plug 'vim-scripts/grep.vim' " search in working directory for a pattern
 Plug 'vim-scripts/CSApprox' " colors in :terminal
-Plug 'Raimondi/delimitMate' " autaumatically close parenthesis, brackets...
+Plug 'cohama/lexima.vim' " autaumatically close parenthesis, brackets...
 "Plug 'majutsushi/tagbar'
-Plug 'w0rp/ale' " syntax error (red arrow at the left when there is a syntax error)
+Plug 'w0rp/ale' " linter
 Plug 'Yggdroot/indentLine' " vertical line every 4-spaces indentation 
 Plug 'sheerun/vim-polyglot' " every languages. do not slow startup
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-"Plug 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'SirVer/ultisnips' 
 Plug 'honza/vim-snippets' " create empty condition statement
 Plug 'tomasr/molokai'
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']} " create empty statement for c and cpp
 Plug 'ludwig/split-manpage.vim'
 Plug 'Nero-F/vim-tek-header'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'nelsyeung/twig.vim'
+
+" php plugins
+
+Plug 'arnaud-lb/vim-php-namespace'
+
 call plug#end()
 
 "*****************************************************************************
@@ -119,6 +126,7 @@ let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 30
+let NERDTreeShowHidden=1
 
 " nerdtree file highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -143,10 +151,16 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 " YouCompleteMe configuration
 " **************************************************
 
-"let g:ycm_auto_trigger = 1
-"let g:ycm_key_list_select_completion = ['<TAB>', '<C-Down>']
-"let g:ycm_key_list_previous_completion = ['<S-TAB>', '<C-Up>']
-"let g:ycm_key_list_stop_completion = ['<Enter>']
+let g:ycm_auto_trigger = 1
+let g:ycm_key_list_select_completion = ['<TAB>', '<C-Down>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<C-Up>']
+let g:ycm_key_list_stop_completion = ['<Enter>']
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_filepath_completion_use_working_dir = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:EclimCompletionMethod = 'omnifunc'
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+let g:ycm_filetype_blacklist = { 'php': 1 }
 
 "*****************************************************************************
 "" Vim-ariline configuration
@@ -174,3 +188,15 @@ endif
 "  let g:airline_symbols.whitespace = 'Ξ'
   let g:airline_symbols.readonly = ''
 "  let g:airline_symbols.linenr = ''
+
+"*****************************************************************************
+"" Php Namespace configuration
+"*****************************************************************************
+
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
