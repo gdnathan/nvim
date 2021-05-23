@@ -10,6 +10,7 @@ Plug 'vim-scripts/grep.vim' " search in working directory for a pattern
 Plug 'norcalli/nvim-colorizer.lua' " highlight hexa colors in coresponding color
 Plug 'mhinz/vim-startify' " starting screen
 Plug 'rhysd/vim-clang-format'
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'liuchengxu/vista.vim' " search lsp symbol (jump to deffinition)
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " language server
 Plug 'cohama/lexima.vim' " autaumatically close parenthesis, brackets...
@@ -25,11 +26,14 @@ Plug 'wesQ3/vim-windowswap' " swap window <leader>ww to select and swap
 "Plug 'AndrewRadev/tagalong.vim' " HTML/XML: change name of corresponding tags
 Plug 'Yggdroot/indentLine' " vertical line every 4-spaces indentation
 Plug 'sheerun/vim-polyglot' " every languages. do not slow startup
+
+" Haskell
 Plug 'neovimhaskell/haskell-vim'
+
 Plug 'dkasak/gruvbox'
 Plug 'Nero-F/vim-tek-header'
 Plug 'vbe0201/vimdiscord' " add RPC to discord
 Plug 'ryanoasis/vim-devicons' " icons
 Plug 'rhysd/git-messenger.vim'
-
+" Plug 'dense-analysis/ale' " linter UwU
 call plug#end()

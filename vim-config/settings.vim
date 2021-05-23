@@ -18,7 +18,7 @@ set ignorecase
 set smartcase
 
 " copy and past between vim and system
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set nocp
 
 set termguicolors
@@ -34,4 +34,5 @@ set autoread " edit vim file when modified somewhere else
 "*****************************************************************************
 set number " display line nbr at the left
 silent! colorscheme gruvbox " choose color theme
+let g:asmsyntax = 'nasm' " asm syntax
 set mousemodel=popup " right click doesnt trigger visual mode

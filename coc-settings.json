@@ -1,0 +1,42 @@
+{
+    "languageserver": {
+        "clangd": {
+            "command": "clangd",
+            "args": [
+                "--background-index",
+                "-clang-tidy",
+                "--suggest-missing-includes",
+                "--header-insertion=iwyu"
+            ],
+            "rootPatterns": [
+                "compile_flags.txt",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ]
+        },
+        "haskell": {
+          "command": "haskell-language-server-wrapper",
+          "args": ["--lsp"],
+          "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+          "filetypes": ["haskell", "lhaskell"]
+        }
+    },
+    "coc.preferences.snippets.enable": false,
+    "diagnostic.virtualText": false,
+   // "diagnostic.checkCurrentLine": true,
+    "snippets.loadFromExtensions": true,
+    "snippets.snipmate.enable": true,
+    "snippets.ultisnips.enable": true,
+    "snippets.textmateSnippetsRoots": [
+        "/home/erudyx/.config/nvim/coc/snippets"
+    ]
+    //"diagnostic.messageTarget": "echo"
+}
