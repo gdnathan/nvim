@@ -29,6 +29,7 @@ Plug 'sheerun/vim-polyglot' " every languages. do not slow startup
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
+Plug 'rust-lang/rust.vim'
 
 Plug 'dkasak/gruvbox'
 Plug 'Nero-F/vim-tek-header'

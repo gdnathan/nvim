@@ -30,6 +30,8 @@ map <Leader>gp :Git push<CR>
 nnoremap <Enter> :call CocActionAsync('doHover')<CR>
 
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-reference)
+nmap <silent> gi <Plug>(coc-implementation)
 
 " x doesnt copy to clipboard
 noremap x "_x
