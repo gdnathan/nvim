@@ -27,8 +27,9 @@ Plug 'wesQ3/vim-windowswap' " swap window <leader>ww to select and swap
 Plug 'Yggdroot/indentLine' " vertical line every 4-spaces indentation
 Plug 'sheerun/vim-polyglot' " every languages. do not slow startup
 
-" Haskell
+" Languages
 Plug 'neovimhaskell/haskell-vim'
+Plug 'rust-lang/rust.vim'
 
 Plug 'dkasak/gruvbox'
 Plug 'Nero-F/vim-tek-header'
