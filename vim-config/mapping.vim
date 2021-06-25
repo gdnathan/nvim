@@ -41,6 +41,8 @@ nnoremap <C-Space> :call Format()<CR>
 function Format()
     if &filetype ==# 'python'
         :Black
+    elseif &filetype ==# 'rust'
+        :RustFmt
     else
         :ClangFormat
         :ClangFormat
