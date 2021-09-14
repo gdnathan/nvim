@@ -1,4 +1,4 @@
-call plug#begin(expand('~/.config/nvim/plugged'))
+call plug#begin('~\AppData\Local\nvim\plugged')
 
 Plug 'preservim/nerdtree' " tree view
 Plug 'tpope/vim-fugitive' " git integration
