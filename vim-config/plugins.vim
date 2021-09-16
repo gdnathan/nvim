@@ -1,5 +1,11 @@
 call plug#begin(expand('~/.config/nvim/plugged'))
 
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall' " ONLY FOR LINUX BUILD
+
+" extention for builtin lsp support
+"Plug 'mfussenegger/nvim-jdtls'
+
 Plug 'preservim/nerdtree' " tree view
 Plug 'tpope/vim-fugitive' " git integration
 Plug 'vim-airline/vim-airline'  " status bar at the bottom
@@ -11,8 +17,6 @@ Plug 'norcalli/nvim-colorizer.lua' " highlight hexa colors in coresponding color
 Plug 'mhinz/vim-startify' " starting screen
 Plug 'rhysd/vim-clang-format'
 Plug 'psf/black', { 'branch': 'stable' }
-Plug 'liuchengxu/vista.vim' " search lsp symbol (jump to deffinition)
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " language server
 Plug 'cohama/lexima.vim' " autaumatically close parenthesis, brackets...
 Plug 'kevinhwang91/rnvimr' " floating window :oo
 Plug 'tpope/vim-commentary' " comment element with gc (ex: gcc = comment a line)
@@ -25,11 +29,10 @@ Plug 'ntpeters/vim-better-whitespace' " every trailing spaces in RED. :StripWhit
 Plug 'wesQ3/vim-windowswap' " swap window <leader>ww to select and swap
 "Plug 'AndrewRadev/tagalong.vim' " HTML/XML: change name of corresponding tags
 Plug 'Yggdroot/indentLine' " vertical line every 4-spaces indentation
-Plug 'sheerun/vim-polyglot' " every languages. do not slow startup
 
 " Languages
-Plug 'neovimhaskell/haskell-vim'
-Plug 'rust-lang/rust.vim'
+"Plug 'neovimhaskell/haskell-vim'
+"Plug 'rust-lang/rust.vim'
 
 Plug 'dkasak/gruvbox'
 Plug 'Nero-F/vim-tek-header'
