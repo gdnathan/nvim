@@ -2,7 +2,9 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall' " ONLY FOR LINUX BUILD
-
+" Plug 'hrsh7th/nvim-cmp' " completion tool
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/lsp-status.nvim'
 " extention for builtin lsp support
 "Plug 'mfussenegger/nvim-jdtls'
 
@@ -15,9 +17,9 @@ Plug 'vim-scripts/grep.vim' " search in working directory for a pattern
 
 Plug 'norcalli/nvim-colorizer.lua' " highlight hexa colors in coresponding color
 Plug 'mhinz/vim-startify' " starting screen
-Plug 'rhysd/vim-clang-format'
+"Plug 'rhysd/vim-clang-format'
 Plug 'psf/black', { 'branch': 'stable' }
-Plug 'cohama/lexima.vim' " autaumatically close parenthesis, brackets...
+Plug 'windwp/nvim-autopairs' " autaumatically close parenthesis, brackets...
 Plug 'kevinhwang91/rnvimr' " floating window :oo
 Plug 'tpope/vim-commentary' " comment element with gc (ex: gcc = comment a line)
 Plug 'RRethy/vim-illuminate' " highlight other uses of the word under the cursor
@@ -36,7 +38,7 @@ Plug 'Yggdroot/indentLine' " vertical line every 4-spaces indentation
 
 Plug 'dkasak/gruvbox'
 Plug 'Nero-F/vim-tek-header'
-Plug 'vbe0201/vimdiscord' " add RPC to discord
+"Plug 'vbe0201/vimdiscord' " add RPC to discord
 Plug 'ryanoasis/vim-devicons' " icons
 Plug 'rhysd/git-messenger.vim'
 " Plug 'dense-analysis/ale' " linter UwU

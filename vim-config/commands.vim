@@ -18,4 +18,4 @@ autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 expandtab colorcolumn=80
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=80
 
 autocmd BufRead,BufNewFile *.asm set filetype=nasm
-
+autocmd BufEnter * lua require'completion'.on_attach()

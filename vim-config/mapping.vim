@@ -24,28 +24,38 @@ nnoremap ] zc :action ExpandBlock<CR>
 
 nnoremap <C-p> :action SearchEverywhere<CR>
 
-map <Leader>f :CocFix<CR>
+"map <Leader>f :CocFix<CR>
 map <Leader>gc :Git commit<CR>
 map <Leader>gp :Git push<CR>
-nnoremap <Enter> :call CocActionAsync('doHover')<CR>
+" nnoremap <Enter> :call CocActionAsync('doHover')<CR>
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-reference)
-nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gr <Plug>(coc-reference)
+" nmap <silent> gi <Plug>(coc-implementation)
 
 " x doesnt copy to clipboard
 noremap x "_x
 
-nnoremap <C-Space> :call Format()<CR>
-" Ctrl + Space to use code formater
-function Format()
-    if &filetype ==# 'python'
-        :Black
-    elseif &filetype ==# 'rust'
-        :RustFmt
-    else
-        :ClangFormat
-        :ClangFormat
-    endif
-endfunction
+" nnoremap <C-Space> :call Format()<CR>
+" " Ctrl + Space to use code formater
+" function Format()
+"     if &filetype ==# 'python'
+"         :Black
+"     elseif &filetype ==# 'rust'
+"         :RustFmt
+"     else
+"         :ClangFormat
+"         :ClangFormat
+"     endif
+" endfunction
 
+" nvim-completion
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
