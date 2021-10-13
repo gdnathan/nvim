@@ -1,12 +1,3 @@
-
-local nvim_lsp = require('lspconfig')
-
--- require'lspconfig'.java_language_server.setup{}
--- require'lspconfig'.rust_analyzer.setup{}
-
--- require'lspconfig'.denols.setup{}
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -14,6 +5,7 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
+  -- Mappings.
   -- Mappings.
   local opts = { noremap=true, silent=true }
 
@@ -37,25 +29,25 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<C-Space>', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-require'lspconfig'.dartls.setup{
-    cmd = { "dart", "/bin/snapshots/analysis_server.dart.snapshot", "--lsp" },
-    on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    flags = {
-      debounce_text_changes = 150,
-    }
-}
 
-local servers = {'denols'}
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    flags = {
-      debounce_text_changes = 150,
+local function setup_servers()
+  require'lspinstall'.setup()
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{
+        on_attach = on_attach,
+        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        flags = {
+            debounce_text_changes = 150,
+        }
     }
-  }
+  end
+end
 
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end

@@ -23,7 +23,7 @@ set nocp
 
 set termguicolors
 
-set mouse=a " activate the mouse
+"set mouse=a " activate the mouse
 set tags+=/usr/include/**/tags " include user tags when generating tags
 "exclude temp file from autocompletion
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite "
@@ -36,3 +36,5 @@ set number " display line nbr at the left
 silent! colorscheme gruvbox " choose color theme
 let g:asmsyntax = 'nasm' " asm syntax
 set mousemodel=popup " right click doesnt trigger visual mode
+
+set completeopt=menu,menuone,noselect
