@@ -27,10 +27,11 @@
 
 
     sources = {
-      { name = 'nvim_lsp' },
-
       -- For vsnip user.
       { name = 'vsnip' },
+      { name = 'nvim_lsp' },
+      { name = 'buffer' },
+
 
       -- For luasnip user.
       -- { name = 'luasnip' },
@@ -38,7 +39,16 @@
       -- For ultisnips user.
       -- { name = 'ultisnips' },
 
-      { name = 'buffer' },
+      -- to use tabnine
+      { name = 'cmp_tabnine' },
     }
   })
 
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+        max_lines = 1000;
+        max_num_results = 20;
+        sort = true;
+	run_on_every_keystroke = true;
+	snippet_placeholder = '..';
+})

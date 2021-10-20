@@ -1,10 +1,7 @@
 " set leader key
 let mapleader=','
 
-map <C-e> :NERDTreeToggle<CR>
 map <C-s> :%s/\s\+$//e<CR>
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 "mal alt + arrow to move lines
 " nnoremap <A-Down> :m .+1<CR>==

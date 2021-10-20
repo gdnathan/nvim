@@ -1,5 +1,6 @@
-autocmd StdinReadPre * let s:std_in=1 " dunno
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "open NERDTree if you just type "vim"
+" autocmd StdinReadPre * let s:std_in=1 " dunno
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NvimTreeToggle | endif "open NERDTree if you just type "vim"
+autocmd VimEnter * NvimTreeOpen
 "autocmd TextChanged, TextChangedI <buffer> silent write " autosave
 "need to find a solution for autosaving, the above solution doesn't work
 

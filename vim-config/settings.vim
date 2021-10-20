@@ -33,8 +33,7 @@ set autoread " edit vim file when modified somewhere else
 "" Visual Settings
 "*****************************************************************************
 set number " display line nbr at the left
-silent! colorscheme gruvbox " choose color theme
-let g:asmsyntax = 'nasm' " asm syntax
+silent! colorscheme dracula " choose color theme
 set mousemodel=popup " right click doesnt trigger visual mode
 
 set completeopt=menu,menuone,noselect
