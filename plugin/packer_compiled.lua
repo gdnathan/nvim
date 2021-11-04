@@ -25,7 +25,7 @@ local no_errors, error_msg = pcall(function()
   else
     time = function(chunk, start) end
   end
-
+  
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -69,6 +69,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/Comment.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/cmp-buffer"
@@ -76,6 +80,10 @@ _G.packer_plugins = {
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+  },
+  ["cmp-tabnine"] = {
+    loaded = true,
+    path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/cmp-tabnine"
   },
   ["cmp-vsnip"] = {
     loaded = true,
@@ -105,6 +113,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
+  ["mapx.nvim"] = {
+    loaded = true,
+    path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/mapx.nvim"
+  },
+  neoformat = {
+    loaded = true,
+    path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/neoformat"
+  },
   ["nord-vim"] = {
     loaded = true,
     path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/nord-vim"
@@ -130,9 +146,18 @@ _G.packer_plugins = {
     path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
-    config = { "\27LJ\1\2;\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\14nvim-tree\frequire\0" },
     loaded = true,
     path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/erudyx/.local/share/nvim/site/pack/packer/opt/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -149,10 +174,6 @@ _G.packer_plugins = {
   ["vim-better-whitespace"] = {
     loaded = true,
     path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/vim-better-whitespace"
-  },
-  ["vim-commentary"] = {
-    loaded = true,
-    path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/vim-commentary"
   },
   ["vim-devicons"] = {
     loaded = true,
@@ -173,10 +194,6 @@ _G.packer_plugins = {
   ["vim-smoothie"] = {
     loaded = true,
     path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/vim-smoothie"
-  },
-  ["vim-startify"] = {
-    loaded = true,
-    path = "/home/erudyx/.local/share/nvim/site/pack/packer/start/vim-startify"
   },
   ["vim-surround"] = {
     loaded = true,
@@ -201,10 +218,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\1\2;\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-ts-context-commentstring'}, { event = "BufRead *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

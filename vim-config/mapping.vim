@@ -33,26 +33,18 @@ map <Leader>gp :Git push<CR>
 " x doesnt copy to clipboard
 noremap x "_x
 
-" nnoremap <C-Space> :call Format()<CR>
-" " Ctrl + Space to use code formater
-" function Format()
-"     if &filetype ==# 'python'
-"         :Black
-"     elseif &filetype ==# 'rust'
-"         :RustFmt
-"     else
-"         :ClangFormat
-"         :ClangFormat
-"     endif
-" endfunction
+map m za
 
 " nvim-completion
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
 
 " Avoid showing message extra message when using completion
 set shortmess+=c
+
+

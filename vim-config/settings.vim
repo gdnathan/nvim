@@ -9,6 +9,7 @@ set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set expandtab
+
 "" Enable hidden buffers
 set hidden
 "" Searching
@@ -37,3 +38,8 @@ silent! colorscheme dracula " choose color theme
 set mousemodel=popup " right click doesnt trigger visual mode
 
 set completeopt=menu,menuone,noselect
+
+set mouse=n
+set nofoldenable
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()

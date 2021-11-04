@@ -7,6 +7,10 @@ require('packer').startup(function()
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer' -- ONLY FOR LINUX BUILD
     use 'nvim-lua/lsp-status.nvim'
+    use 'sbdchd/neoformat'
+    -- use 'prettier/vim-prettier'
+    -- hightlighting
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
     -- completion tools:
     use 'hrsh7th/nvim-cmp'
@@ -14,6 +18,7 @@ require('packer').startup(function()
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
+    use 'github/copilot.vim'
     use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
     --themes
@@ -35,7 +40,7 @@ require('packer').startup(function()
     use 'RRethy/vim-illuminate' -- highlight other uses of the word under the cursor
 
 
-    -- Rest
+    -- other
     use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
@@ -48,10 +53,14 @@ require('packer').startup(function()
 
     -- use 'mhinz/vim-startify' -- starting screen
     use 'windwp/nvim-autopairs' -- autaumatically close parenthesis, brackets...
-    use 'tpope/vim-commentary' -- comment element with gc (ex: gcc = comment a line)
+    -- use 'tpope/vim-commentary' -- comment element with gc (ex: gcc = comment a line)
+    use 'numToStr/Comment.nvim'
+    -- use 'JoosepAlviste/nvim-ts-context-commentstring' -- base comment syntax on cursor position
+    use({ "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" })
     use 'tpope/vim-surround' -- use cs\--' to change \--bite\-- into 'bite', stuff like that
     use 'wesQ3/vim-windowswap' -- swap window <leader>ww to select and swap
 
     use 'Nero-F/vim-tek-header'
     use 'rhysd/git-messenger.vim'
 end)
+
