@@ -33,6 +33,7 @@ set autoread " edit vim file when modified somewhere else
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
+set relativenumber " display line nbr at the left
 set number " display line nbr at the left
 silent! colorscheme dracula " choose color theme
 set mousemodel=popup " right click doesnt trigger visual mode

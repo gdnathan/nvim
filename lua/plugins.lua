@@ -4,6 +4,8 @@ require('packer').startup(function()
     local use = require('packer').use
 
     use 'wbthomason/packer.nvim'
+
+    -- LSP
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer' -- ONLY FOR LINUX BUILD
     use 'nvim-lua/lsp-status.nvim'
@@ -12,14 +14,15 @@ require('packer').startup(function()
     -- hightlighting
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
-    -- completion tools:
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/vim-vsnip'
-    use 'github/copilot.vim'
-    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+   -- completion tools:
+   use 'hrsh7th/nvim-cmp'
+   use 'hrsh7th/cmp-nvim-lsp'
+   use 'hrsh7th/cmp-buffer'
+   use 'hrsh7th/cmp-vsnip'
+   use 'hrsh7th/vim-vsnip'
+   use 'rafamadriz/friendly-snippets'
+   use 'github/copilot.vim'
+   use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
     --themes
     use 'arcticicestudio/nord-vim'
@@ -38,29 +41,30 @@ require('packer').startup(function()
     use 'ntpeters/vim-better-whitespace' -- every trailing spaces in RED. :StripWhitespaces to del them all
     use 'ryanoasis/vim-devicons' -- icons
     use 'RRethy/vim-illuminate' -- highlight other uses of the word under the cursor
-
-
-    -- other
     use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
     }
-    -- use 'preservim/nerdtree' -- tree view
+
+    --telescope
+    use {'nvim-telescope/telescope.nvim', require = {'nvim-lua/plenary.nvim'}}
+    use 'nvim-lua/plenary.nvim'
+    use 'luc-tielen/telescope_hoogle'
+    use 'nvim-lua/popup.nvim'
+    use 'nvim-telescope/telescope-symbols.nvim'
+    use 'nvim-telescope/telescope-media-files.nvim'
+    use 'nvim-telescope/telescope-frecency.nvim'
+
+    -- UX
     use 'tpope/vim-fugitive' -- git integration
     use 'b0o/mapx.nvim'
-
-    use 'vim-scripts/grep.vim' -- search in working directory for a pattern
-
-    -- use 'mhinz/vim-startify' -- starting screen
     use 'windwp/nvim-autopairs' -- autaumatically close parenthesis, brackets...
-    -- use 'tpope/vim-commentary' -- comment element with gc (ex: gcc = comment a line)
     use 'numToStr/Comment.nvim'
-    -- use 'JoosepAlviste/nvim-ts-context-commentstring' -- base comment syntax on cursor position
     use({ "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" })
     use 'tpope/vim-surround' -- use cs\--' to change \--bite\-- into 'bite', stuff like that
     use 'wesQ3/vim-windowswap' -- swap window <leader>ww to select and swap
 
-    use 'Nero-F/vim-tek-header'
-    use 'rhysd/git-messenger.vim'
+    -- others
+   use 'Nero-F/vim-tek-header'
 end)
 
